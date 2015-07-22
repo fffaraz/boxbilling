@@ -33,7 +33,7 @@ class Box_Update
         return $this->di;
     }
 
-    private $_url = 'http://api.boxbilling.com/compare-version.php';
+    private $_url = ''; //'http://api.boxbilling.com/compare-version.php';
 
     public function __construct()
     {
