@@ -30,7 +30,7 @@ class Box_License implements \Box\InjectionAwareInterface
      */
     public function getKey()
     {
-        $license = $this->di['config']['license'];
+        $license = 'PRO-123456'; //$this->di['config']['license'];
         if(!$license || $license == '') {
             throw new \Box_Exception('BoxBilling license key must be defined in bb-config.php file.', null, 315);
         }
@@ -112,7 +112,7 @@ class Box_License implements \Box\InjectionAwareInterface
         if(!$cache || $from_server) {
             try {
                 $servers = array(
-                    'http://www.boxbilling.com/api/guest/servicelicense/check',
+                    //'http://www.boxbilling.com/api/guest/servicelicense/check',
                 );
                 $l = $this->_getLicenseDetailsFromServer($servers);
             } catch(\LogicException $e) {
@@ -186,6 +186,8 @@ class Box_License implements \Box\InjectionAwareInterface
 
     private function _tryLicensingServer($url, $params)
     {
+        return '';
+        /*
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_VERBOSE, 0);
@@ -200,5 +202,6 @@ class Box_License implements \Box\InjectionAwareInterface
         curl_close($ch);
 
         return $result;
+        */
     }
 }
